@@ -1,0 +1,26 @@
+# GPO Schema definition
+
+objectidentifier gpoSchema 1.3.6.1.4.1.8254.1021
+objectidentifier gpoAttrs gpoSchema:3
+objectidentifier gpoOCs gpoSchema:4
+
+attributetype ( gpoAttrs:1 
+      NAME 'id'
+	  DESC 'GPO Unique Identifier'
+      EQUALITY caseIgnoreMatch
+	  SUBSTR caseIgnoreSubstringsMatch
+      SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{32} )
+
+attributetype ( gpoAttrs:2
+      NAME 'uri'
+	  DESC 'GPO Unique Resource Identifier'
+      EQUALITY caseIgnoreMatch
+	  SUBSTR caseIgnoreSubstringsMatch
+      SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{255} )
+
+
+objectClass ( gpoOCs:1 
+	NAME 'groupPolicyDescriptor'
+	DESC 'Describe a Group Object Policy'
+	SUP top
+	MUST ( id $ uri ) )

@@ -1,0 +1,30 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          bootexecutor_launcher
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start daemon at boot time
+# Description:       Enable GPO at Boot
+### END INIT INFO
+
+touch /var/lock/bootexecutor_launcher
+
+case "$1" in
+  start)
+    echo "Starting GPO script bootexecutor... "
+    exec /etc/init.d/bootexecutor
+	exit 1
+    ;;
+  stop)
+    echo "Stopping GPO Script..."
+	exit 1
+    ;;
+  *)
+    echo "Usage: /etc/init.d/bootexecutor_launcher {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
