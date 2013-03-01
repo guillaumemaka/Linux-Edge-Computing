@@ -6,5 +6,5 @@ Linux-Edge-Computing
 - Create a custom PAM Module
 - Create a custom LDAP Object
 
-Guillaume Maka
-Supinfo Montréal
+Supinfo Montréal - &copy;2011 Guillaume Maka
+
